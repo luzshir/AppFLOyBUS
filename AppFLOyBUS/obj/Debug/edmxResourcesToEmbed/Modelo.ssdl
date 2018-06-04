@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bdJardineriaModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="bdJardineriaModelStoreContainer">
+    <EntitySet Name="Adorno" EntityType="bdJardineriaModel.Store.Adorno" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pedido" EntityType="bdJardineriaModel.Store.Pedido" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Planta" EntityType="bdJardineriaModel.Store.Planta" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Usuario" EntityType="bdJardineriaModel.Store.Usuario" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Pedido_To_Adorno" Association="bdJardineriaModel.Store.FK_Pedido_To_Adorno">
+      <End Role="Adorno" EntitySet="Adorno" />
+      <End Role="Pedido" EntitySet="Pedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pedido_To_Planta" Association="bdJardineriaModel.Store.FK_Pedido_To_Planta">
+      <End Role="Planta" EntitySet="Planta" />
+      <End Role="Pedido" EntitySet="Pedido" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Adorno">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="precio" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pedido">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombreCliente" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="fechaPedido" Type="datetime" Nullable="false" />
+    <Property Name="cantidadTotal" Type="int" Nullable="false" />
+    <Property Name="dimensionJardin" Type="float" Nullable="false" />
+    <Property Name="cantidadDineroUsuario" Type="int" Nullable="false" />
+    <Property Name="comentario" Type="varchar" MaxLength="250" />
+    <Property Name="idPlanta" Type="int" Nullable="false" />
+    <Property Name="idAdorno" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Planta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombrePlanta" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="valor" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="varchar" Nullable="false" MaxLength="25" />
+    <Property Name="usuario" Type="varchar" Nullable="false" MaxLength="25" />
+    <Property Name="apellido" Type="varchar" MaxLength="50" />
+    <Property Name="contraseña" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK_Pedido_To_Adorno">
+    <End Role="Adorno" Type="bdJardineriaModel.Store.Adorno" Multiplicity="1" />
+    <End Role="Pedido" Type="bdJardineriaModel.Store.Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Adorno">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pedido">
+        <PropertyRef Name="idAdorno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pedido_To_Planta">
+    <End Role="Planta" Type="bdJardineriaModel.Store.Planta" Multiplicity="1" />
+    <End Role="Pedido" Type="bdJardineriaModel.Store.Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Planta">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pedido">
+        <PropertyRef Name="idPlanta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

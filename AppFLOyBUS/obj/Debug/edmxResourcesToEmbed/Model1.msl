@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="bdJardineriaModelStoreContainer" CdmEntityContainer="bdJardineriaEntities">
+    <EntitySetMapping Name="Adorno">
+      <EntityTypeMapping TypeName="bdJardineriaModel.Adorno">
+        <MappingFragment StoreEntitySet="Adorno">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="precio" ColumnName="precio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pedido">
+      <EntityTypeMapping TypeName="bdJardineriaModel.Pedido">
+        <MappingFragment StoreEntitySet="Pedido">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nombreCliente" ColumnName="nombreCliente" />
+          <ScalarProperty Name="fechaPedido" ColumnName="fechaPedido" />
+          <ScalarProperty Name="cantidadTotal" ColumnName="cantidadTotal" />
+          <ScalarProperty Name="dimensionJardin" ColumnName="dimensionJardin" />
+          <ScalarProperty Name="cantidadDineroUsuario" ColumnName="cantidadDineroUsuario" />
+          <ScalarProperty Name="comentario" ColumnName="comentario" />
+          <ScalarProperty Name="idPlanta" ColumnName="idPlanta" />
+          <ScalarProperty Name="idAdorno" ColumnName="idAdorno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Planta">
+      <EntityTypeMapping TypeName="bdJardineriaModel.Planta">
+        <MappingFragment StoreEntitySet="Planta">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nombrePlanta" ColumnName="nombrePlanta" />
+          <ScalarProperty Name="valor" ColumnName="valor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="bdJardineriaModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="usuario1" ColumnName="usuario" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

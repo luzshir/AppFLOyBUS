@@ -1,0 +1,17 @@
+C:\Users\user\AppData\Local\Temporary Projects\AppFLOyBUS\bin\Debug\AppFLOyBUS.exe.config
+D:\Flo&Bus\AppFLOyBUS\AppFLOyBUS\bin\Debug\AppFLOyBUS.exe.config
+D:\Flo&Bus\AppFLOyBUS\AppFLOyBUS\bin\Debug\AppFLOyBUS.exe
+D:\Flo&Bus\AppFLOyBUS\AppFLOyBUS\bin\Debug\AppFLOyBUS.pdb
+D:\Flo&Bus\AppFLOyBUS\AppFLOyBUS\obj\Debug\AppFLOyBUS.csprojResolveAssemblyReference.cache
+D:\Flo&Bus\AppFLOyBUS\AppFLOyBUS\obj\Debug\AppFLOyBUS.Form1.resources
+D:\Flo&Bus\AppFLOyBUS\AppFLOyBUS\obj\Debug\AppFLOyBUS.Properties.Resources.resources
+D:\Flo&Bus\AppFLOyBUS\AppFLOyBUS\obj\Debug\AppFLOyBUS.csproj.GenerateResource.Cache
+D:\Flo&Bus\AppFLOyBUS\AppFLOyBUS\obj\Debug\AppFLOyBUS.exe
+D:\Flo&Bus\AppFLOyBUS\AppFLOyBUS\obj\Debug\AppFLOyBUS.pdb
+D:\Flo&Bus\AppFLOyBUS\AppFLOyBUS\bin\Debug\EntityFramework.dll
+D:\Flo&Bus\AppFLOyBUS\AppFLOyBUS\bin\Debug\EntityFramework.SqlServer.dll
+D:\Flo&Bus\AppFLOyBUS\AppFLOyBUS\bin\Debug\EntityFramework.xml
+D:\Flo&Bus\AppFLOyBUS\AppFLOyBUS\bin\Debug\EntityFramework.SqlServer.xml
+D:\Flo&Bus\AppFLOyBUS\AppFLOyBUS\obj\Debug\AppFLOyBUS.RealizarPedido.resources
+D:\Flo&Bus\AppFLOyBUS\AppFLOyBUS\obj\Debug\AppFLOyBUS.Bienvenida.resources
+D:\Flo&Bus\AppFLOyBUS\AppFLOyBUS\obj\Debug\AppFLOyBUS.ListaPedidos.resources

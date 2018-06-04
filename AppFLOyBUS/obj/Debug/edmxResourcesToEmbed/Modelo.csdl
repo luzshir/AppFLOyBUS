@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bdJardineriaModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="bdJardineriaEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Adorno" EntityType="bdJardineriaModel.Adorno" />
+    <EntitySet Name="Pedido" EntityType="bdJardineriaModel.Pedido" />
+    <EntitySet Name="Planta" EntityType="bdJardineriaModel.Planta" />
+    <EntitySet Name="Usuario" EntityType="bdJardineriaModel.Usuario" />
+    <AssociationSet Name="FK_Pedido_To_Adorno" Association="bdJardineriaModel.FK_Pedido_To_Adorno">
+      <End Role="Adorno" EntitySet="Adorno" />
+      <End Role="Pedido" EntitySet="Pedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pedido_To_Planta" Association="bdJardineriaModel.FK_Pedido_To_Planta">
+      <End Role="Planta" EntitySet="Planta" />
+      <End Role="Pedido" EntitySet="Pedido" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Adorno">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="precio" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Pedido" Relationship="bdJardineriaModel.FK_Pedido_To_Adorno" FromRole="Adorno" ToRole="Pedido" />
+  </EntityType>
+  <EntityType Name="Pedido">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="nombreCliente" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="fechaPedido" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="cantidadTotal" Type="Int32" Nullable="false" />
+    <Property Name="dimensionJardin" Type="Double" Nullable="false" />
+    <Property Name="cantidadDineroUsuario" Type="Int32" Nullable="false" />
+    <Property Name="comentario" Type="String" MaxLength="250" Unicode="false" FixedLength="false" />
+    <Property Name="idPlanta" Type="Int32" Nullable="false" />
+    <Property Name="idAdorno" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Adorno" Relationship="bdJardineriaModel.FK_Pedido_To_Adorno" FromRole="Pedido" ToRole="Adorno" />
+    <NavigationProperty Name="Planta" Relationship="bdJardineriaModel.FK_Pedido_To_Planta" FromRole="Pedido" ToRole="Planta" />
+  </EntityType>
+  <EntityType Name="Planta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="nombrePlanta" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="valor" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Pedido" Relationship="bdJardineriaModel.FK_Pedido_To_Planta" FromRole="Planta" ToRole="Pedido" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+    <Property Name="usuario1" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+    <Property Name="apellido" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="contraseña" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Pedido_To_Adorno">
+    <End Role="Adorno" Type="bdJardineriaModel.Adorno" Multiplicity="1" />
+    <End Role="Pedido" Type="bdJardineriaModel.Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Adorno">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pedido">
+        <PropertyRef Name="idAdorno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pedido_To_Planta">
+    <End Role="Planta" Type="bdJardineriaModel.Planta" Multiplicity="1" />
+    <End Role="Pedido" Type="bdJardineriaModel.Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Planta">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pedido">
+        <PropertyRef Name="idPlanta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
